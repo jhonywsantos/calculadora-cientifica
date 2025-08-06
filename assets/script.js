@@ -112,25 +112,25 @@ function executarCalculo(opcao) {
     resultDiv.style.display = 'none';
     
     try {
+        let valores = {};
         let resultado;
+        
         if (opcao >= '1' && opcao <= '5') {
-            const num1 = document.getElementById('num1').value;
-            const num2 = document.getElementById('num2').value;
+            valores.num1 = document.getElementById('num1').value;
+            valores.num2 = document.getElementById('num2').value;
             
-            if (!num1 || !num2) {
+            if (!valores.num1 || !valores.num2) {
                 throw new Error("Por favor, preencha todos os campos.");
             }
-            
-            resultado = calcular(opcao, num1, num2);
         } else if (opcao === '6' || opcao === '7') {
-            const num = document.getElementById('num').value;
+            valores.num = document.getElementById('num').value;
             
-            if (!num) {
+            if (!valores.num) {
                 throw new Error("Por favor, preencha o campo.");
             }
-            
-            resultado = calcular(opcao, null, null, num);
         }
+        
+        resultado = calcular(opcao, valores);
         
         resultDiv.textContent = `Resultado: ${resultado}`;
         resultDiv.className = 'result';
@@ -139,5 +139,6 @@ function executarCalculo(opcao) {
         resultDiv.textContent = `Erro: ${error.message}`;
         resultDiv.className = 'result error';
         resultDiv.style.display = 'block';
+        console.error(error);
     }
 }
