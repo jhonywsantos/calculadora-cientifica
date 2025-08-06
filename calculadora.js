@@ -1,9 +1,9 @@
-// Lógica da calculadora (adaptada do calculadora.py)
-function calcular(opcao, num1, num2, num) {
+// Lógica da calculadora (versão corrigida)
+function calcular(opcao, valores) {
     try {
         if (opcao >= "1" && opcao <= "5") {
-            num1 = parseFloat(num1);
-            num2 = parseFloat(num2);
+            const num1 = parseFloat(valores.num1);
+            const num2 = parseFloat(valores.num2);
             
             if (isNaN(num1) || isNaN(num2)) {
                 throw new Error("Valores inválidos!");
@@ -17,16 +17,17 @@ function calcular(opcao, num1, num2, num) {
                     if (num2 === 0) throw new Error("Divisão por zero!");
                     return num1 / num2;
                 case "5": return Math.pow(num1, num2);
+                default: throw new Error("Operação inválida!");
             }
         } 
         else if (opcao === "6") {
-            num = parseFloat(num);
+            const num = parseFloat(valores.num);
             if (isNaN(num)) throw new Error("Valor inválido!");
             if (num < 0) throw new Error("Não existe raiz de número negativo!");
             return Math.sqrt(num);
         } 
         else if (opcao === "7") {
-            num = parseInt(num);
+            const num = parseInt(valores.num);
             if (isNaN(num)) throw new Error("Valor inválido!");
             if (num < 0) throw new Error("Não existe fatorial de número negativo!");
             if (num > 170) throw new Error("Número muito grande para cálculo de fatorial!");
