@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Científica</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <div class="calculator-container">
+        <h1>Calculadora Científica</h1>
+        
+        <div class="menu">
+            <button onclick="showOperation('1')">Soma</button>
+            <button onclick="showOperation('2')">Subtração</button>
+            <button onclick="showOperation('3')">Multiplicação</button>
+            <button onclick="showOperation('4')">Divisão</button>
+            <button onclick="showOperation('5')">Potência</button>
+            <button onclick="showOperation('6')">Raiz Quadrada</button>
+            <button onclick="showOperation('7')">Fatorial</button>
+        </div>
+        
+        <div id="operation-form" class="operation-form">
+            <p>Selecione uma operação acima</p>
+        </div>
+        
+        <div id="result" class="result"></div>
+    </div>
+
+    <script src="assets/calculadora.js"></script>
+    <script src="assets/script.js"></script>
+</body>
+</html>
